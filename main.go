@@ -8,11 +8,13 @@ import (
 
 
 func main(){
+
+	
 	service := api.Service {
 		HTTPClient: http.DefaultClient,
 	}
 
-	//raiz do projeto e ação de sua chamada
+	//ação da chamada- irá mostrar mensagem de carregamento
 	http.HandleFunc("/", service.GetRandomUser)
 	log.Println("listando...")
 
