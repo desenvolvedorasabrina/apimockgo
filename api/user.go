@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"os"
+	"io/ioutil"
 )
 
 type HTTPClientInterface interface {
@@ -34,7 +34,7 @@ func (s *Service) GetRandomUser(w http.ResponseWriter, r *http.Request) {
 	defer res.Body.Close()
 
 	//tratamento de erro ao retornar os dados do arquivo
-	data, err := os.ReadFile(res.Body)
+	data, err := ioutil.ReadAll(res.Body)
 	if err != nil {
 		log.Println(err)
 	}
